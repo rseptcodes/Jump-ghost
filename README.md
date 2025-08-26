@@ -1,35 +1,58 @@
-# 🎰 Jump ghost!
+# 🎰 Jump Ghost!
 
-**Jump Ghost** é meu primeiro projeto com foco em javascript
+**Jump Ghost** é um protótipo experimental feito pra aprender JavaScript na prática — um jogo simples, visual e direto, com spawn de obstáculos, colisão e HUD.
 
-⚠️ **Atenção:** por alguns motivos eu decidi deixar este projeto de lado, e talvez refazer-lo completamente em um futuro próximo, adicionando algumas ideias e refazendo os gráficos. 
+> ⚠️ **Obs:** o projeto está pausado por enquanto. Este repositório é um registro do que aprendi — posso reescrever no futuro, mas por enquanto fica assim.
 
----
+----
 
 ## 📌 Objetivo
 
-O principal objetivo do projeto é **aprender javascript** da forma mais interessante: **PRATICANDO**
+O principal objetivo do projeto é **aprender JavaScript praticando**.  
+Este jogo foi **inspirado no Flappy Bird**, recriado do zero apenas para fins de estudo.
 
----
+----
 
-## 🛠️ Tecnologias Utilizadas
+## 🕹️ Como jogar
 
-- **HTML5:** estrutura da página e elementos interativos.  
-- **CSS3:** estilos visuais, animações, efeitos de profundidade e brilho.  
-- **JavaScript:** lógica da roleta, manipulação de apostas e feedback instantâneo.  
-- **Artes feitas por mim :D**
-- 
-O projeto combina esses recursos para criar uma **experiência visual atrativa e interessante**.
+- Clique / toque para pular.  
+- Passe entre os canos para somar pontos.  
+- A dificuldade escala com o score: canos aparecem mais rápido e com menos espaço conforme você avança.
 
----
+----
 
-## 📚 Licença
+## 🛠️ Tecnologias
 
-nao é permitido uso de terceiros.
+- **HTML5** — estrutura.  
+- **CSS3** — estilos e animações.  
+- **JavaScript (vanilla)** — lógica do jogo (física simples, spawn, colisões, HUD).  
+- **Gráficos:** artes feitas por mim.
 
----
+> ⚠️ **Áudio:** não há áudio embutido (decidi não incluir).
 
-## 📝 Observações 
+----
 
-O projeto, como eu tinha dito, foi **meu primeiro projeto focado em javascript**, então há diversas coisas que eu faria diferente hoje, eu organizaria as variáveis globais em objetos relacionados aos elementos, faria uma função generica para gerar os elementos (por RNG ou os elementos pre-determinados) e evitaria tantos setInterval,faria o uso de deltaTime (para evitar que fique injogavel além dos 60hz) e manteria um funçao para mover os elementos de forma genérica sem necessitar de vários rAFs todando a todo momento.
-Um dia eu planejo refazer-lo, com novas ideias (como por exemplo, novas mecanicas, para dar um diferencial), entretanto, eu sinto que seria bem mais dificil eu tentar melhorar o codigo atual ao inves de criar do zero.
+## 📝 Observações / lições aprendidas
+
+Este foi meu primeiro projeto focado em JS; hoje eu faria muitas coisas diferente, por exemplo:
+
+- Agrupar estado em objetos/módulos (evitar variáveis globais espalhadas).  
+- Substituir múltiplos `setInterval` por um único loop com `requestAnimationFrame` + `deltaTime`.  
+- Criar um sistema de entidades (spawn/movimento/destruição) para reduzir churn no DOM.  
+- Separar lógica (regras, RNG) da renderização para facilitar manutenção e testes.
+
+Manter o protótipo aqui faz sentido como registro de aprendizado.
+
+----
+
+## ▶️ Como executar (rápido)
+
+Abra `index.html` no navegador (não precisa de servidor).  
+Ou rode um servidor local se preferir: `python -m http.server` ou `npx http-server` na pasta do projeto.
+
+----
+
+## ✉️ Contato
+
+Desenvolvido por **@I.rsept** — feedback/colab: abre uma issue no repo.
+```
