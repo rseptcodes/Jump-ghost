@@ -210,7 +210,7 @@ backdrop-filter: blur(4px);
     height: 60px;
     z-index: 3;
     position:absolute;
-    background-image: url('nuvem-m.png');
+    background-image: url('nuvem,m.png');
     opacity: 0.6;
     
 }
