@@ -383,7 +383,7 @@ requestAnimationFrame(moverMontanha)
 // Mover o chão
 const chao1 = document.getElementById("chao");
 const chao2 = document.getElementById("chao2");
-const larguraChao = chao1.getBoundingClientRect().width;
+const larguraChao = window.innerWidth
 let veloC = 4;
 let posXC = 0;
 let posXC2 = larguraChao;
