@@ -24,7 +24,7 @@ let veloDT = 3;
 let motivo = "";
 let canoWidth = 70;
 // invencibilidade
-let invencivel = true;
+let invencivel = false;
 // sistema de pontuacao
 
 let recordeAtual = localStorage.getItem("recordeAtual");
@@ -383,9 +383,8 @@ requestAnimationFrame(moverMontanha)
 // Mover o chão
 const chao1 = document.getElementById("chao");
 const chao2 = document.getElementById("chao2");
-const larguraTela2 = window.innerWidth;
-let veloC = 4;
 const larguraChao = chao1.offsetWidth;
+let veloC = 4;
 let posXC = 0;
 let posXC2 = larguraChao;
 
@@ -393,15 +392,16 @@ function moverOChao() {
   posXC -= veloC;
   posXC2 -= veloC;
 
-  if (posXC <= -larguraChao) posXC = larguraChao;
-  if (posXC2 <= -larguraChao) posXC2 = larguraChao;
+  // reposiciona cada um logo após o outro
+  if (posXC <= -larguraChao) posXC = posXC2 + larguraChao;
+  if (posXC2 <= -larguraChao) posXC2 = posXC + larguraChao;
 
   chao1.style.left = posXC + "px";
   chao2.style.left = posXC2 + "px";
 
   requestAnimationFrame(moverOChao);
 }
-requestAnimationFrame(moverOChao);
+  requestAnimationFrame(moverOChao);
 // mover o sol
 
     const sol = document.getElementById("sol");
