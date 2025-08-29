@@ -36,10 +36,12 @@ Este jogo foi **inspirado no Flappy Bird**, recriado do zero apenas para fins de
 
 Este foi meu primeiro projeto focado em JS; hoje eu faria muitas coisas diferente, por exemplo:
 
-- Agrupar estado em objetos/módulos (evitar variáveis globais espalhadas).  
-- Substituir múltiplos `setInterval` por um único loop com `requestAnimationFrame` + `deltaTime`.  
-- Criar um sistema de entidades (spawn/movimento/destruição) para reduzir churn no DOM.  
+- Agrupar estado em objetos/módulos (evitar variáveis globais espalhadas).
+- Substituir múltiplos `setInterval` por um único loop com `requestAnimationFrame` + `deltaTime`.
+- Criar um sistema de entidades (spawn/movimento/destruição) para reduzir churn no DOM.
 - Separar lógica (regras, RNG) da renderização para facilitar manutenção e testes.
+
+**OBS (atualização):** originalmente o jogo não usava deltaTime, o que deixava a física dependente do Hz do dispositivo. Adicionei um ajuste simples de deltaTime para tornar a jogabilidade consistente em diferentes taxas de atualização. Mantive a solução intencionalmente direta — o objetivo foi deixar o jogo jogável, não refatorar tudo agora.
 
 Manter o protótipo aqui faz sentido como registro de aprendizado.
 
