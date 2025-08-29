@@ -392,8 +392,8 @@ function moverOChao() {
   posXC -= veloC;
   posXC2 -= veloC;
 
-if (posXC <= -larguraChao) posXC = posXC2 + larguraChao;
-if (posXC2 <= -larguraChao) posXC2 = posXC + larguraChao;
+if (posXC <= -larguraChao) posXC += 2 * larguraChao;
+if (posXC2 <= -larguraChao) posXC2 += 2 * larguraChao;
 
   chao1.style.left = posXC + "px";
   chao2.style.left = posXC2 + "px";
