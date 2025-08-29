@@ -401,6 +401,7 @@ function moverOChao() {
 
   requestAnimationFrame(moverOChao);
 }
+requestAnimationFrame(moverOChao);
 // mover o sol
 
     const sol = document.getElementById("sol");
