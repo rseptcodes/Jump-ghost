@@ -161,16 +161,17 @@ backdrop-filter: blur(4px);
   position: absolute;
   bottom: 0;
   z-index: 5;
+  box-sizing: border-box;
 }
 .chao2 {
-  width: 100%;
+  width: 100vw;
   height: 50px;
   background-image: url('tile4.png');
   background-repeat: repeat-x;
   position: absolute;
   bottom: 0;
   z-index: 5;
-  left: 0;
+  box-sizing: border-box;
 }
 .sol {
     width: 70px;
