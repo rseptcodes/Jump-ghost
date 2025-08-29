@@ -154,7 +154,7 @@ backdrop-filter: blur(4px);
   transform: translateY(-50%);
 }
 .chao {
-  width: 100%;
+  width: 100vw;
   height: 50px;
   background-image: url('Tile4.png');
   background-repeat: repeat-x;
