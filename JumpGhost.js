@@ -383,7 +383,7 @@ requestAnimationFrame(moverMontanha)
 // Mover o chão
 const chao1 = document.getElementById("chao");
 const chao2 = document.getElementById("chao2");
-const larguraChao = chao1.offsetWidth;
+const larguraChao = chao1.getBoundingClientRect().width;
 let veloC = 4;
 let posXC = 0;
 let posXC2 = larguraChao;
@@ -392,9 +392,8 @@ function moverOChao() {
   posXC -= veloC;
   posXC2 -= veloC;
 
-  // reposiciona cada um logo após o outro
-  if (posXC <= -larguraChao) posXC = posXC2 + larguraChao;
-  if (posXC2 <= -larguraChao) posXC2 = posXC + larguraChao;
+if (posXC <= -larguraChao) posXC = posXC2 + larguraChao;
+if (posXC2 <= -larguraChao) posXC2 = posXC + larguraChao;
 
   chao1.style.left = posXC + "px";
   chao2.style.left = posXC2 + "px";
