@@ -131,16 +131,16 @@ function criarCanos() {
           if (subindo) {
             canoH-= velociCD;
             canoH2+= velociCD;
-            cano1.style.height = canoH + "vh";
-            cano2.style.height = canoH2 + "vh";
+            cano1.style.height = canoH + "dvh";
+            cano2.style.height = canoH2 + "dvh";
             if (subindo && canoH < 20){
               subindo = false;
             }
           } else if (!subindo) {
             canoH+= velociCD;
             canoH2-= velociCD;
-            cano1.style.height = canoH + "vh";
-            cano2.style.height = canoH2 + "vh";
+            cano1.style.height = canoH + "dvh";
+            cano2.style.height = canoH2 + "dvh";
             if (!subindo && canoH > 55 )
             subindo = true;
           }
@@ -151,8 +151,8 @@ function criarCanos() {
     }
     moldura.appendChild(cano1);
     moldura.appendChild(cano2);
-    cano1.style.height = canoH + "vh";
-    cano2.style.height = canoH2 + "vh";
+    cano1.style.height = canoH + "dvh";
+    cano2.style.height = canoH2 + "dvh";
 
     cano1.style.left = canoR + "px";
     cano2.style.left = canoR2 + "px";
@@ -323,7 +323,7 @@ localStorage.setItem("recordeAtual", pontos);
 // criar nuvens
 function criarNuvens () { let nuvemX = window.innerWidth; const nuvem = document.createElement("div"); let altura = Math.floor(Math.random() * 81) + 10;
 
-nuvem.style.top = altura + "vh"; nuvem.style.left = nuvemX + "px"; nuvem.style.position = "absolute";
+nuvem.style.top = altura + "dvh"; nuvem.style.left = nuvemX + "px"; nuvem.style.position = "absolute";
 
 let sorteio = Math.floor(Math.random() * 6) + 1; if (sorteio <= 2) { nuvem.classList.add("nuvemp"); } else if (sorteio <= 5) { nuvem.classList.add("nuvemm"); } else { nuvem.classList.add("nuvemg"); }
 if (pontos >= 15) {
@@ -385,27 +385,22 @@ const chao1 = document.getElementById("chao");
 const chao2 = document.getElementById("chao2");
 const larguraTela2 = window.innerWidth;
 let veloC = 4;
-let posXC = larguraTela2;
-let posXC2 = 0;
-
+const larguraChao = chao1.offsetWidth;
+let posXC = 0;
+let posXC2 = larguraChao;
 
 function moverOChao() {
-    posXC -= veloC;
-    posXC2 -= veloC;
-    if (posXC <= -larguraTela2){
-    posXC = larguraTela2;
-    }
-    if (posXC2 <= -larguraTela2){
-        posXC2 = larguraTela2;
-    }
-    chao1.style.left = posXC + "px";
-    chao2.style.left = posXC2 + "px";
-    if (pontos >= 15) {
-        veloC = 6;
-    } requestAnimationFrame(moverOChao)
-}
+  posXC -= veloC;
+  posXC2 -= veloC;
 
-requestAnimationFrame(moverOChao)
+  if (posXC <= -larguraChao) posXC = larguraChao;
+  if (posXC2 <= -larguraChao) posXC2 = larguraChao;
+
+  chao1.style.left = posXC + "px";
+  chao2.style.left = posXC2 + "px";
+
+  requestAnimationFrame(moverOChao);
+}
 // mover o sol
 
     const sol = document.getElementById("sol");
@@ -505,7 +500,7 @@ function criarPontos() {
   dots.classList.add("dots");
 
   let altura = Math.floor(Math.random() * 81) + 10;
-  dots.style.top = altura + "vh";
+  dots.style.top = altura + "dvh";
 
   
   let posXDT = window.innerWidth;
@@ -555,7 +550,7 @@ function moverElementoPor1Segundo(elemento, direcao) {
       if (direcao === "sobe") posY -= 0.09;
       else if (direcao === "desce") posY += 0.09;
 
-      elemento.style.top = posY + "vh";
+      elemento.style.top = posY + "dvh";
       requestAnimationFrame(animar);
     } else {
       elemento.estaAnimando = false;
@@ -570,7 +565,7 @@ function criarBorboletas() {
   borboletas.classList.add("borboletas");
   let btfyX = window.innerWidth;
   let btfyY = Math.floor(Math.random() * 90) + 1;
-  borboletas.style.top = btfyY + "vh";
+  borboletas.style.top = btfyY + "dvh";
   let hue = Math.floor(Math.random() * 360);
   borboletas.style.filter = `hue-rotate(${hue}deg)`;
 
@@ -633,7 +628,7 @@ function gerarAleatorio() {
     let balaoX = window.innerWidth;
     balao.classList.add("balao");
     let posInicial = Math.floor(Math.random() * 70) + 1;
-    balao.style.top = posInicial + "vh";
+    balao.style.top = posInicial + "dvh";
     moldura.appendChild(balao);
 
     function decisaoBalao() {
