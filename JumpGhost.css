@@ -12,8 +12,8 @@ html, body {
     left: 20px;
 }
 .moldura {
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     max-width: 500px;
     max-height: 800px;
     margin: 0 auto;
