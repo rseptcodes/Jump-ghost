@@ -25,7 +25,7 @@ let veloDT = 3;
 let motivo = "";
 let canoWidth = 70;
 // invencibilidade
-let invencivel = true;
+let invencivel = false;
 // sistema de pontuacao
 
 let recordeAtual = localStorage.getItem("recordeAtual");
