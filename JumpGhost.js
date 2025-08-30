@@ -16,6 +16,7 @@ let canoR2 = 400;
 let colisao = false;
 let espaçoEntre = 30;
 let pontoMarcado = false;
+let intervalocanos;
 let pontos = 0;
 let faseAtual = -1; 
 
@@ -24,7 +25,7 @@ let veloDT = 3;
 let motivo = "";
 let canoWidth = 70;
 // invencibilidade
-let invencivel = false;
+let invencivel = true;
 // sistema de pontuacao
 
 let recordeAtual = localStorage.getItem("recordeAtual");
@@ -52,8 +53,6 @@ function aplicarGravidade(time) {
     requestAnimationFrame(aplicarGravidade);
 }
 
-requestAnimationFrame(aplicarGravidade);
-
 // Sistema de pulo
 function saltar () {
     birdY -= pulo;
@@ -66,6 +65,7 @@ function pular () {
 }
 
 // Touch e click
+function permitirTouch(){
 document.body.addEventListener("touchstart", () => {
     if (!toque) {
         interval = setInterval(saltar, 16);
@@ -89,7 +89,7 @@ document.body.addEventListener("click", () => {
         }, 100);
     }
 });
-
+}
 // Animacao
 
 // Criação de canos
@@ -239,7 +239,6 @@ function Colisao() {
 }
 // Progressão de dificuldade
 let timerCriarCanos = 1400;
-let intervalocanos = setInterval(criarCanos, timerCriarCanos);
 let ultimoponto = -1;
 function progressao() {
         
@@ -268,23 +267,6 @@ function progressao() {
           }
         
     }
-
-progressao();
-
-// Loop de colisão + progressão
-const intervalo = setInterval(() => {
-    if (Colisao()) {
-        clearInterval(intervalo);
-    }
-    progressao();
-}, 16);
-
-
-
-
-
-
-
 
 
 // Game Over
@@ -321,7 +303,10 @@ localStorage.setItem("recordeAtual", pontos);
 }
 
 // criar nuvens
-function criarNuvens () { let nuvemX = window.innerWidth; const nuvem = document.createElement("div"); let altura = Math.floor(Math.random() * 81) + 10;
+function criarNuvens() { 
+	let nuvemX = window.innerWidth; 
+	const nuvem = document.createElement("div"); 
+	let altura = Math.floor(Math.random() * 81) + 10;
 
 nuvem.style.top = altura + "dvh"; nuvem.style.left = nuvemX + "px"; nuvem.style.position = "absolute";
 
@@ -334,12 +319,9 @@ moldura.appendChild(nuvem);
 function moverNuvem() { nuvemX -= velociN; nuvem.style.left = nuvemX + "px";
 
 if (nuvemX > -1000) { requestAnimationFrame(moverNuvem); } else { nuvem.remove(); } 
-
 }
-
-requestAnimationFrame(moverNuvem); }
-
-setInterval(criarNuvens, 150);
+requestAnimationFrame(moverNuvem);
+}
 // Mover montanhas 
 const montanha1a = document.getElementById("montanha1a");
 const montanha1b = document.getElementById("montanha1b");
@@ -378,7 +360,6 @@ function moverMontanha(){
   montanha2b.style.left = posM2b + "px";
   requestAnimationFrame(moverMontanha)
 }
-requestAnimationFrame(moverMontanha)
 
 // Mover o chão
 const chao1 = document.getElementById("chao");
@@ -400,7 +381,6 @@ if (posXC2 <= -larguraChao) posXC2 = posXC + larguraChao - 1;
 
   requestAnimationFrame(moverOChao);
 }
-  requestAnimationFrame(moverOChao);
 // mover o sol
 
     const sol = document.getElementById("sol");
@@ -458,7 +438,6 @@ function moverLua() {
   }
 }
 
-requestAnimationFrame(moverSol);
 
 // criar canos ao fundo
 function criarCanosFundo() {
@@ -492,7 +471,6 @@ function criarCanosFundo() {
   
   requestAnimationFrame(animar);
 }
-setInterval (criarCanosFundo ,3000);
 
 // pontos ino 
 function criarPontos() {
@@ -519,7 +497,6 @@ function criarPontos() {
     }
   }, 16);
 }
-setInterval(criarPontos, 800);
 //animacoes
 function flashAtivar () {
     const flash = document.getElementById("flash")
@@ -677,4 +654,56 @@ function gerarAleatorio() {
 }
 }
 
-setInterval(gerarAleatorio, 4000);
+// Inicialização
+function iniciar(){
+	requestAnimationFrame(aplicarGravidade);
+	const intervalo = setInterval(() => {
+    if (Colisao()) {
+        clearInterval(intervalo);
+    }
+    progressao();
+}, 16);
+	setInterval(criarNuvens,150);
+	requestAnimationFrame(moverMontanha);
+	requestAnimationFrame(moverOChao);
+	requestAnimationFrame(moverSol);
+	setInterval(criarCanosFundo ,3000);
+	setInterval(criarPontos, 800);
+	setInterval(gerarAleatorio, 4000);
+	permitirTouch();
+}
+function criarBotaoIniciar(){
+	const botaoIniciar = document.createElement("button");
+	botaoIniciar.classList.add("button2");
+	botaoIniciar.innerText = "Aperte para iniciar";
+	document.body.appendChild(botaoIniciar);
+	gerenciarOverlay(false);
+	gerenciarLogo(false);
+	moldura.style.pointerEvents = "none";
+	botaoIniciar.addEventListener("click", () => {
+		gerenciarOverlay(true);
+		gerenciarLogo(true);
+		moldura.style.pointerEvents = "auto";
+		botaoIniciar.remove();
+		iniciar();
+	})
+}
+criarBotaoIniciar();
+function gerenciarOverlay(apagar){
+  if (!apagar){
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    moldura.appendChild(overlay);
+  } else {
+    document.querySelectorAll(".overlay").forEach(o => o.remove());
+  }
+}
+function gerenciarLogo(apagar){
+	if (!apagar){
+	const logo = document.createElement("div");
+	logo.classList.add("logo");
+	moldura.appendChild(logo);
+} else if (apagar){
+	document.querySelectorAll(".logo").forEach(o => o.remove());
+}
+}
