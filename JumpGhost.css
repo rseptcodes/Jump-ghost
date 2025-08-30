@@ -235,7 +235,7 @@ backdrop-filter: blur(4px);
 .lua {
     width: 70px;
     height: 70px;
-    background-image: url('lua.png');
+    background-image: url('Lua.png');
     z-index: 0;
     position: absolute;
     top: 60px;
@@ -253,7 +253,7 @@ backdrop-filter: blur(4px);
     height: 60px;
     z-index: 3;
     position:absolute;
-    background-image: url('nuvem-p.png');
+    background-image: url('Nuvem-p.png');
     opacity: 0.6;
 }
 .nuvemm {
@@ -261,7 +261,7 @@ backdrop-filter: blur(4px);
     height: 60px;
     z-index: 3;
     position:absolute;
-    background-image: url('nuvem,m.png');
+    background-image: url('Nuvem,m.png');
     opacity: 0.6;
     
 }
@@ -270,7 +270,7 @@ backdrop-filter: blur(4px);
     height: 120px;
     z-index: 3;
     position:absolute;
-    background-image: url('nuvem-g.png');
+    background-image: url('Nuvem-g.png');
     opacity: 0.6;
     
 }
