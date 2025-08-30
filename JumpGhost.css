@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     background-color: black;
-    
+    font-family: 'Roboto', sans-serif;
 }
 #trocartema {
     position: fixed;
@@ -205,7 +205,7 @@ backdrop-filter: blur(4px);
 .chao {
   width: 100dvw;
   height: 50px;
-  background-image: url('tile4.png');
+  background-image: url('Tile4.png');
   background-repeat: repeat-x;
   position: absolute;
   bottom: 0;
@@ -216,7 +216,7 @@ backdrop-filter: blur(4px);
 .chao2 {
   width: 100dvw;
   height: 50px;
-  background-image: url('tile4.png');
+  background-image: url('Tile4.png');
   background-repeat: repeat-x;
   position: absolute;
   bottom: 0;
