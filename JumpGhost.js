@@ -25,7 +25,7 @@ let veloDT = 3;
 let motivo = "";
 let canoWidth = 70;
 // invencibilidade
-let invencivel = false;
+let invencivel = true;
 // sistema de pontuacao
 
 let recordeAtual = localStorage.getItem("recordeAtual");
@@ -702,6 +702,10 @@ function gerenciarLogo(apagar){
 	if (!apagar){
 	const logo = document.createElement("div");
 	logo.classList.add("logo");
+	logo.addEventListener("click", () => {
+		if (invencivel) invencivel = false;
+		if (!invencivel) invenvivel = true;
+	});
 	moldura.appendChild(logo);
 } else if (apagar){
 	document.querySelectorAll(".logo").forEach(o => o.remove());
