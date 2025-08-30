@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     background-color: black;
-    font-family: 'Inter', sans-serif;
+    
 }
 #trocartema {
     position: fixed;
@@ -92,6 +92,55 @@ backdrop-filter: blur(4px);
   -webkit-tap-highlight-color: transparent;
   margin-top: 40%;
 }
+.button2 {
+	box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: rgba(255,255,255, 0.3);
+  width: 200px;
+  color: white;
+  border: none;
+  border-radius: 80px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: Opx Opx 30px rgba(227, 228, 237, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: 0.2s;
+  backdrop-filter: blur(30px);
+  z-index: 10;
+  -webkit-tap-highlight-color: transparent;
+  position: fixed;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+.button2:hover {
+  background-color: #a21b49;
+}
+.overlay {
+	background-color: rgba(16,16,16,0.400);
+	backdrop-filter: blur(20px);
+	z-index: 9;
+	position: fixed;
+	left: 0%;
+	top: 0%;
+	width: 100dvw;
+	height: 100dvh;
+}
+.logo{
+	background-image: url('JumpGhostLogo.png');
+	image-rendering: pixelated;
+	background-repeat: no-repeat;  
+	background-size: cover;
+	background-size: contain;
+	box-sizing: border-box;
+	width: 340px;
+	height: 200px;
+	left: 50%;
+	top: 45%;
+	z-index: 10;
+	transform: translate(-50%, -50%);
+	position: fixed;
+}
 .button:hover {
   background-color: #a21b49;
 }
@@ -154,24 +203,25 @@ backdrop-filter: blur(4px);
   transform: translateY(-50%);
 }
 .chao {
-  width: 100vw;
-  height: 50px;
-  background-image: url('Tile4.png');
-  background-repeat: repeat-x;
-  position: absolute;
-  bottom: 0;
-  z-index: 5;
-  box-sizing: border-box;
-}
-.chao2 {
-  width: 100vw;
+  width: 100dvw;
   height: 50px;
   background-image: url('tile4.png');
   background-repeat: repeat-x;
   position: absolute;
   bottom: 0;
   z-index: 5;
+  left: 0;
   box-sizing: border-box;
+}
+.chao2 {
+  width: 100dvw;
+  height: 50px;
+  background-image: url('tile4.png');
+  background-repeat: repeat-x;
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+  left: 0;
 }
 .sol {
     width: 70px;
@@ -185,7 +235,7 @@ backdrop-filter: blur(4px);
 .lua {
     width: 70px;
     height: 70px;
-    background-image: url('Lua.png');
+    background-image: url('lua.png');
     z-index: 0;
     position: absolute;
     top: 60px;
@@ -203,7 +253,7 @@ backdrop-filter: blur(4px);
     height: 60px;
     z-index: 3;
     position:absolute;
-    background-image: url('Nuvem-p.png');
+    background-image: url('nuvem-p.png');
     opacity: 0.6;
 }
 .nuvemm {
@@ -211,7 +261,7 @@ backdrop-filter: blur(4px);
     height: 60px;
     z-index: 3;
     position:absolute;
-    background-image: url('Nuvem,m.png');
+    background-image: url('nuvem-m.png');
     opacity: 0.6;
     
 }
@@ -220,7 +270,7 @@ backdrop-filter: blur(4px);
     height: 120px;
     z-index: 3;
     position:absolute;
-    background-image: url('Nuvem-g.png');
+    background-image: url('nuvem-g.png');
     opacity: 0.6;
     
 }
@@ -386,6 +436,7 @@ backdrop-filter: blur(4px);
   z-index: -1;
 }
 
+/* Quando entra o modo "media" (pôr do sol) */
 body.media .moldura::before {
   opacity: 1;
 }
@@ -476,3 +527,4 @@ body.escuro .canosCima {
 body.escuro .canosBaixo{
   background-color:rgba(35,111,227,0.4);
 }
+/* Transições suaves para o modo escuro */
