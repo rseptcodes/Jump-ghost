@@ -53,8 +53,3 @@ Abra `index.html` no navegador (não precisa de servidor).
 Ou rode um servidor local se preferir: `python -m http.server` ou `npx http-server` na pasta do projeto.
 
 ----
-
-## ✉️ Contato
-
-Desenvolvido por **@I.rsept** — feedback/colab: abre uma issue no repo.
-```
